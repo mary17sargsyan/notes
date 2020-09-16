@@ -1,0 +1,8 @@
+label{
+    margin-top:5px;
+    color:#17c671;
+    font-size: 19px;
+}
+input:after{
+    border: #17c671 !important;
+}

@@ -1,0 +1,22 @@
+body{
+  margin-left: 5% !important;
+}
+.showNotes{
+  margin-left: 20%;
+  width: 50%;
+
+}
+.DIV{
+  width: 50%;
+  height: 300px;
+  background-color: cornsilk;
+}
+
+.Search{
+  float: right;
+  margin-right: 50px;
+  width: 20%;
+}
+.btn{
+  margin-left: 12px !important;
+}

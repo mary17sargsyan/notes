@@ -1,0 +1,11 @@
+.col {
+ margin-top: 10px;
+}
+.row{
+    height:80px !important;
+    font-weight: initial;
+    font-size: 12px !important;
+
+    line-height: 70px;
+    border-bottom: 1px solid #17c671 ;
+}
