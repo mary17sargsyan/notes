@@ -180,6 +180,7 @@ class App extends Component {
                     category: 'games',
                     collapseToggle: false}],
         editId: null,
+        err: false,
         defaultNotes:[ {id:2,
             title: 'Lorem Ipsum',
             notes: 'Lorem Ipsum is simply dummy text of the printin',
@@ -272,9 +273,17 @@ class App extends Component {
         }
         notesList.push(notes);
 
-        this.setState({notes: notesList, defaultNotes:  notesList })
-        this.createNotes();
-        this.emptyCongif();
+        if(notes.date !== ""){
+            this.createNotes();
+            this.emptyCongif();
+            this.setState({notes: notesList, defaultNotes:  notesList, err: false })
+        }else{
+            this.setState({err: true})
+        }
+
+
+
+
     }
     deleteNotes=(id)=>{
 
@@ -336,6 +345,12 @@ class App extends Component {
         this.setState({notes: obj})
     }
     render() {
+        let err;
+        if(this.state.err){
+            err=<p style={{color: 'orangered'}}> Please choose a  date from calendar !  </p>
+        }else{
+            err=null
+        }
         let formElementsArray=[];
         for(let key in this.state.config){
             formElementsArray.push({id: key, config: this.state.config[key]});
@@ -437,7 +452,7 @@ class App extends Component {
                 <CreateModal
                     open={this.state.open}
                     toggle={this.createNotes}
-                    header="Create Note" body={form}/>
+                    header="Create Note" err={err} body={form}/>
 
                     <div style={{float: "left", marginLeft: '20%', width: '50%', marginTop: '10%'}}>
                         <Notes
